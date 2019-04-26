@@ -21,7 +21,7 @@ export const AppConfig: SystemSettings = {
   },
 
   redisSettings: {
-    host: environmentSettings.REDIS_URL,
+    host: environmentSettings.REDIS_HOST,
     port: environmentSettings.REDIS_PORT,
     authPass: environmentSettings.REDIS_AUTH_PASS
   }
