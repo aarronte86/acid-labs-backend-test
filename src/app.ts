@@ -3,16 +3,21 @@ import { json } from 'body-parser';
 import * as cors from 'cors';
 
 import { SystemSettings } from 'config/config';
+import { IApiController } from './api/baseApiController';
+import { WeatherOutputApiController } from './api';
 
 export class App {
   private readonly _app: express.Application;
+  private readonly _router: express.Router;
   private readonly _config: SystemSettings;
 
   constructor(config: SystemSettings) {
     this._config = config;
     this._app = express();
+    this._router = express.Router();
 
     this.config();
+    this.initializeControllers();
   }
 
   private config(): void {
@@ -27,10 +32,16 @@ export class App {
 
     // support application/json type post data
     this._app.use(json());
+  }
 
-    this._app.get('/', function(req, res) {
-      res.send('Hello World!!!');
+  private initializeControllers(): void {
+    const controllers: IApiController[] = [WeatherOutputApiController.create(this._config)];
+
+    controllers.forEach(controller => {
+      controller.initializeRoutes(this._router);
     });
+
+    this._app.use('/api', this._router);
   }
 
   public run(): void {

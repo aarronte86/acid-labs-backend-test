@@ -1,3 +1,8 @@
+export interface WeatherApiSettings {
+  baseUrl: string;
+  secretKey: string;
+}
+
 export interface SystemSettings {
   // Port the server will be listening on
   port: string;
@@ -5,4 +10,7 @@ export interface SystemSettings {
   appUrl: string;
 
   frontendUrl: string;
+
+  // Weather 3rd party service config
+  weatherApiSettings: WeatherApiSettings;
 }
