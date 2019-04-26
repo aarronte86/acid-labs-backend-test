@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { json } from 'body-parser';
 import * as cors from 'cors';
-import * as cache from 'express-redis-cache';
+import { ExpressRedisCache } from 'express-redis-cache';
 
 import { SystemSettings } from 'config/config';
 import { IApiController } from './api/baseApiController';
@@ -10,12 +10,19 @@ import { WeatherOutputApiController } from './api';
 export class App {
   private readonly _app: express.Application;
   private readonly _router: express.Router;
+  private readonly _cache: ExpressRedisCache;
   private readonly _config: SystemSettings;
 
   constructor(config: SystemSettings) {
     this._config = config;
     this._app = express();
     this._router = express.Router();
+
+    this._cache = new ExpressRedisCache({
+      host: config.redisSettings.host,
+      port: config.redisSettings.port,
+      auth_pass: config.redisSettings.authPass
+    });
 
     this.config();
     this.initializeControllers();
@@ -42,7 +49,7 @@ export class App {
       controller.initializeRoutes(this._router);
     });
 
-    this._app.use('/api', cache({ host: this._config.redisSettings.host }).route(), this._router);
+    this._app.use('/api', this._cache.route(), this._router);
   }
 
   public run(): void {

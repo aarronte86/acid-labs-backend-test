@@ -1,6 +1,7 @@
 export interface RedisSettings {
   host: string;
   port: string;
+  authPass: string;
 }
 
 export interface WeatherApiSettings {
