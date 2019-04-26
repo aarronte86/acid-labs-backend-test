@@ -29,7 +29,7 @@ export class App {
     this._app.use(json());
 
     this._app.get('/', function(req, res) {
-      res.send('Hello World!');
+      res.send('Hello World!!!');
     });
   }
 
