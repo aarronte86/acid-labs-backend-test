@@ -1,0 +1,48 @@
+{
+  "name": "acid-labs-backend-test",
+  "version": "1.0.0",
+  "description": "Acid Labs NodeJs/Express backend challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "ts-node-dev -r dotenv/config ./src/server.ts",
+    "start": "node -r dotenv/config ./dist/server.js",
+    "prod": "npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarronte86/acid-labs-backend-test.git"
+  },
+  "author": "Alfredo Arronte Ameneiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aarronte86/acid-labs-backend-test/issues"
+  },
+  "homepage": "https://github.com/aarronte86/acid-labs-backend-test#readme",
+  "dependencies": {
+    "@types/bcrypt": "^2.0.0",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/express-jwt": "0.0.40",
+    "@types/jsonwebtoken": "^7.2.8",
+    "@types/load-json-file": "^2.0.7",
+    "@types/node": "^10.5.1",
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "inversify": "^4.13.0",
+    "jsonwebtoken": "^8.3.0",
+    "load-json-file": "^5.0.0",
+    "reflect-metadata": "^0.1.12",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.26",
+    "tsconfig-paths": "^3.4.2"
+  }
+}

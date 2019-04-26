@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  dev:
+    image: node:10.4.0
+    volumes:
+      - .:/usr/src/app/
+    working_dir: /usr/src/app/
+    command: npm run dev
+    ports:
+      - 4100:4100
