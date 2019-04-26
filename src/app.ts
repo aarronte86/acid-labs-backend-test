@@ -1,6 +1,7 @@
 import * as express from 'express';
 import { json } from 'body-parser';
 import * as cors from 'cors';
+import * as cache from 'express-redis-cache';
 
 import { SystemSettings } from 'config/config';
 import { IApiController } from './api/baseApiController';
@@ -41,7 +42,7 @@ export class App {
       controller.initializeRoutes(this._router);
     });
 
-    this._app.use('/api', this._router);
+    this._app.use('/api', cache({ host: this._config.redisSettings.host }).route(), this._router);
   }
 
   public run(): void {

@@ -1,8 +1,16 @@
 version: '3'
 
 services:
+  redis:
+    image: redis
+    container_name: cache
+    ports:
+      - 6379:6379
+
   dev:
     image: node:10.4.0
+    links:
+      - redis
     volumes:
       - .:/usr/src/app/
     working_dir: /usr/src/app/

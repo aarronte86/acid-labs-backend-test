@@ -1,3 +1,8 @@
+export interface RedisSettings {
+  host: string;
+  port: string;
+}
+
 export interface WeatherApiSettings {
   baseUrl: string;
   secretKey: string;
@@ -13,4 +18,6 @@ export interface SystemSettings {
 
   // Weather 3rd party service config
   weatherApiSettings: WeatherApiSettings;
+
+  redisSettings: RedisSettings;
 }

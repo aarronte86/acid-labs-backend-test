@@ -36,7 +36,7 @@ export class WeatherOutputApiController extends BaseApiController {
   getWeatherConditions = async (request: Request, response: Response): Promise<void> => {
     const internalRequest: IGetWeatherConditionsRequest = request.query;
 
-    // TODO: I suppose that there should be lot of validation libraries in Node. I know none so I decide to use this pretty basic validation logic.
+    // TODO: I suppose that there should be lots of validation libraries in Node. I know none so I decide to use this pretty basic validation logic.
     const errors = this.validateRequest(internalRequest);
 
     if (errors.length) {

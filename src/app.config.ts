@@ -18,5 +18,10 @@ export const AppConfig: SystemSettings = {
   weatherApiSettings: {
     baseUrl: environmentSettings.DARKSKY_BASE_URL,
     secretKey: environmentSettings.DARKSKY_SECRET_KEY
+  },
+
+  redisSettings: {
+    host: environmentSettings.REDIS_URL,
+    port: environmentSettings.REDIS_PORT
   }
 };
