@@ -13,7 +13,7 @@ if (unsetEnv.length > 0) {
 export const AppConfig: SystemSettings = {
   port: environmentSettings.PORT,
   appUrl: environmentSettings.APP_URL,
-  frontendUrl: environmentSettings.FRONT_URL,
+  frontendUrl: environmentSettings.FRONTEND_URL,
 
   weatherApiSettings: {
     baseUrl: environmentSettings.DARKSKY_BASE_URL,
